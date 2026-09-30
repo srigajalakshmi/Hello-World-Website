@@ -8,7 +8,7 @@ if (!rawPort) {
     "PORT environment variable is required but was not provided.",
   );
 }
-//testing files
+//files
 
 const port = Number(rawPort);
 
