@@ -1,2 +1,2 @@
 console.log("Hello from @workspace/scripts");
-//print 
+//print samples
