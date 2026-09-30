@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Hello World"
+description = "A simple, responsive Hello World website with a friendly welcome message and a small interactive greeting."
+version = "1.0.0"
+id = "artifacts/hello-world"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23537
+
+[services.development]
+run = "pnpm --filter @workspace/hello-world run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/hello-world", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/hello-world/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23537"
+BASE_PATH = "/"
